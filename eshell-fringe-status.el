@@ -99,6 +99,7 @@ window."
                                      'eshell-fringe-status-success
                                    'eshell-fringe-status-failure)))))))
 
+;;;###autoload
 (define-minor-mode eshell-fringe-status-mode
   "Show exit status of last command in fringe."
   nil nil nil
