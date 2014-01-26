@@ -71,7 +71,7 @@ which doesn't accept at least one space will break."
   (let ((first (aref eshell-prompt-regexp 0)))
     (when (eql first ?^)
       (setq eshell-prompt-regexp
-            (format "%c %s" first (substring eshell-prompt-regexp 1))))))
+            (format "%c ?%s" first (substring eshell-prompt-regexp 1))))))
 
 (defun efs--revert-prompt-regexp ()
   "The counterpart for `efs--extend-prompt-regexp', remove a space.
@@ -83,7 +83,7 @@ disabling the mode."
     (when (and (eql first ?^)
                (eql (aref eshell-prompt-regexp 1) ?\s))
       (setq eshell-prompt-regexp
-            (format "%c%s" first (substring eshell-prompt-regexp 2))))))
+            (format "%c%s" first (substring eshell-prompt-regexp 3))))))
 
 (defun eshell-fringe-status ()
   "Display an indication of the last command's exit status.
