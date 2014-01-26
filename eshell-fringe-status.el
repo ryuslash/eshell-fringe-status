@@ -90,14 +90,15 @@ disabling the mode."
 
 This indication is shown as a bitmap in the left fringe of the
 window."
-  (save-excursion
-    (beginning-of-line)
-    (insert
-     (propertize " " 'display
-                 `((left-fringe efs--arrow-bitmap
-                                ,(if (zerop eshell-last-command-status)
-                                     'eshell-fringe-status-success
-                                   'eshell-fringe-status-failure)))))))
+  (when eshell-last-command-name
+    (save-excursion
+      (beginning-of-line)
+      (let ((face (if (zerop eshell-last-command-status)
+                      'eshell-fringe-status-success
+                    'eshell-fringe-status-failure)))
+        (insert
+         (propertize " " 'display
+                     `((left-fringe efs--arrow-bitmap ,face))))))))
 
 ;;;###autoload
 (define-minor-mode eshell-fringe-status-mode
