@@ -41,17 +41,39 @@
   :group 'eshell
   :prefix "eshell-fringe")
 
+(defcustom eshell-fringe-status-success-bitmap 'efs-arrow-bitmap
+  "The fringe bitmap to use when indicating a succesfull operation.
+
+In combination with the `eshell-fringe-status-success' face this
+determines the look of the fringe indicator."
+  :group 'eshell-fringe-status
+  :type 'symbol)
+
+(defcustom eshell-fringe-status-failure-bitmap 'efs-arrow-bitmap
+  "The fringe bitmap to use when indicating a failed operation.
+
+In combination with the `eshell-fringe-status-failure' face this
+determines the look of the fringe indicator."
+  :group 'eshell-fringe-status
+  :type 'symbol)
+
 (defface eshell-fringe-status-success
   '((t (:foreground "#00ff00")))
-  "Face used to indicate success status."
+  "Face used to indicate success status.
+
+In combination with the `eshell-fringe-status-success-bitmap'
+this determines the look of the fringe indicator."
   :group 'eshell-fringe-status)
 
 (defface eshell-fringe-status-failure
   '((t (:foreground "#ff0000")))
-  "Face used to indicate failed status."
+  "Face used to indicate failed status.
+
+In combination withh the `eshell-fringe-status-failure-bitmap'
+this determines the look of the fringe indicator."
   :group 'eshell-fringe-status)
 
-(define-fringe-bitmap 'efs--arrow-bitmap
+(define-fringe-bitmap 'efs-arrow-bitmap
   [#b10000
    #b11000
    #b11100
@@ -61,6 +83,23 @@
    #b11100
    #b11000
    #b10000] 9 5 'center)
+
+(define-fringe-bitmap 'efs-plus-bitmap
+  [#b001100
+   #b001100
+   #b111111
+   #b111111
+   #b001100
+   #b001100] 6 6 'center)
+
+(define-fringe-bitmap 'efs-minus-bitmap
+  [#b111111
+   #b111111] 2 6 'center)
+
+;; efs--depending on command (status)
+(defsubst efs--doc (a b)
+  "Depending on the `eshell-last-command-status' use either A or B."
+  (if (zerop eshell-last-command-status) a b))
 
 (defun efs--extend-prompt-regexp ()
   "Add a space at the beginning of `eshell-prompt-regexp'.
