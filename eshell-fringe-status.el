@@ -112,6 +112,14 @@ which doesn't accept at least one space will break."
       (setq eshell-prompt-regexp
             (format "%c ?%s" first (substring eshell-prompt-regexp 1))))))
 
+(defun efs--propertized-text ()
+  "Return the propertized text to insert into the eshell bufffer."
+  (let ((face (efs--doc 'eshell-fringe-status-success
+                        'eshell-fringe-status-failure))
+        (bitmap (efs--doc eshell-fringe-status-success-bitmap
+                          eshell-fringe-status-failure-bitmap)))
+    (propertize " " 'display `((left-fringe ,bitmap ,face)))))
+
 (defun efs--revert-prompt-regexp ()
   "The counterpart for `efs--extend-prompt-regexp', remove a space.
 
@@ -132,13 +140,8 @@ window."
   (when eshell-last-command-name
     (save-excursion
       (beginning-of-line)
-      (let ((face (if (zerop eshell-last-command-status)
-                      'eshell-fringe-status-success
-                    'eshell-fringe-status-failure))
-            (inhibit-read-only t))
-        (insert
-         (propertize " " 'display
-                     `((left-fringe efs--arrow-bitmap ,face))))))))
+      (let ((inhibit-read-only t))
+        (insert (efs--propertized-text))))))
 
 ;;;###autoload
 (define-minor-mode eshell-fringe-status-mode
