@@ -4,7 +4,7 @@
 
 ;; Author: Tom Willemse <tom@ryuslash.org>
 ;; Keywords:
-;; Version: 0.1.0
+;; Version: 1.0.0
 ;; URL: http://projects.ryuslash.org/eshell-fringe-status/
 
 ;; This program is free software; you can redistribute it and/or modify
