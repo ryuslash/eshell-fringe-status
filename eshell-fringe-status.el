@@ -95,7 +95,8 @@ window."
       (beginning-of-line)
       (let ((face (if (zerop eshell-last-command-status)
                       'eshell-fringe-status-success
-                    'eshell-fringe-status-failure)))
+                    'eshell-fringe-status-failure))
+            (inhibit-read-only t))
         (insert
          (propertize " " 'display
                      `((left-fringe efs--arrow-bitmap ,face))))))))
