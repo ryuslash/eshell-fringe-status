@@ -37,7 +37,7 @@
 ;; `efs-plus-bitmap' and `efs-minus-bitmap'.  These show a `+' and `-'
 ;; in the fringe respectively, instead of an arrow.  These can be used
 ;; by setting the `eshell-fringe-status-success-bitmap' and the
-;; `eshell-fringe-status-failure-map' options.
+;; `eshell-fringe-status-failure-bitmap' options.
 
 ;;; Code:
 
