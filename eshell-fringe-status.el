@@ -26,7 +26,7 @@
 ;; To use, enable `eshell-fringe-status-mode' in `eshell-mode'.  The
 ;; easiest way to do this is by adding a hook:
 
-;; : (add-hook 'eshell-mode-hook #'eshell-fringe-status-mode)
+;; : (add-hook 'eshell-mode-hook 'eshell-fringe-status-mode)
 
 ;; This mode uses a rather hackish way to try and keep everything
 ;; working in regard to `eshell-prompt-regexp', so if anything breaks
