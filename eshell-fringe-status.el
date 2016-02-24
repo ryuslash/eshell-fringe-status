@@ -66,7 +66,7 @@ determines the look of the fringe indicator."
   :type 'symbol)
 
 (defface eshell-fringe-status-success
-  '((t (:foreground "#00ff00")))
+  '((t (:foreground "#00aa00")))
   "Face used to indicate success status.
 
 In combination with the `eshell-fringe-status-success-bitmap'
@@ -74,7 +74,7 @@ this determines the look of the fringe indicator."
   :group 'eshell-fringe-status)
 
 (defface eshell-fringe-status-failure
-  '((t (:foreground "#ff0000")))
+  '((t (:foreground "#aa0000")))
   "Face used to indicate failed status.
 
 In combination withh the `eshell-fringe-status-failure-bitmap'
