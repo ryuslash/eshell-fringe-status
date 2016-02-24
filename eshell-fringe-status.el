@@ -55,7 +55,10 @@
 In combination with the `eshell-fringe-status-success' face this
 determines the look of the fringe indicator."
   :group 'eshell-fringe-status
-  :type 'symbol)
+  :type '(choice
+          (const :tag "Arrow" efs-arrow-bitmap)
+          (const :tag "Minus" efs-minus-bitmap)
+          (const :tag "Plus" efs-plus-bitmap)))
 
 (defcustom eshell-fringe-status-failure-bitmap 'efs-arrow-bitmap
   "The fringe bitmap to use when indicating a failed operation.
@@ -63,7 +66,10 @@ determines the look of the fringe indicator."
 In combination with the `eshell-fringe-status-failure' face this
 determines the look of the fringe indicator."
   :group 'eshell-fringe-status
-  :type 'symbol)
+  :type '(choice
+          (const :tag "Arrow" efs-arrow-bitmap)
+          (const :tag "Minus" efs-minus-bitmap)
+          (const :tag "Plus" efs-plus-bitmap)))
 
 (defface eshell-fringe-status-success
   '((t (:foreground "#00aa00")))
